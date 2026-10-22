@@ -1,0 +1,9 @@
+.git
+.github
+.gitignore
+build
+docs
+tests
+.cache
+.vscode
+compile_commands.json
