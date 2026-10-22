@@ -12,6 +12,9 @@ target_include_directories(matrix_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 add_executable(matrix_calculator src/main.cpp src/demo.cpp)
 target_link_libraries(matrix_calculator PRIVATE matrix_lib)
 
+add_executable(variant_25 src/variant_25.cpp src/demo.cpp)
+target_link_libraries(variant_25 PRIVATE matrix_lib)
+
 function(matrix_enable_warnings target)
     if(MSVC)
         target_compile_options(${target} PRIVATE /W4 /WX)
@@ -22,3 +25,4 @@ endfunction()
 
 matrix_enable_warnings(matrix_lib)
 matrix_enable_warnings(matrix_calculator)
+matrix_enable_warnings(variant_25)
