@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+option(MATRIX_BUILD_TESTS "Build unit tests" ON)
+
 add_library(matrix_lib STATIC src/matrix.cpp)
 target_include_directories(matrix_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -26,3 +28,8 @@ endfunction()
 matrix_enable_warnings(matrix_lib)
 matrix_enable_warnings(matrix_calculator)
 matrix_enable_warnings(variant_25)
+
+if(MATRIX_BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
